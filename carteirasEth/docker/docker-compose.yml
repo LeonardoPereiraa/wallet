@@ -1,0 +1,15 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  app_tabnews_node_lts_hydrogen:
+    build:
+      context: .
+      dockerfile: nodejsDockerfile/Dockerfile
+    volumes:
+      - ../app:/usr/src/app          # Mapeia a pasta local "app" para o contêiner
+    ports:
+      - "3000:3000"                 # Mapeia a porta 3000 do contêiner para a máquina host
+    stdin_open: true                # Para manter o STDIN aberto (equivalente ao "-i")
+    tty: true                       # Para alocar um terminal (equivalente ao "-t")
